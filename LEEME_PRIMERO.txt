@@ -1,0 +1,20 @@
+TV DIGITAL - PROYECTO LISTO PARA COMPILAR APK
+
+Objetivo:
+- Proyecto Android nativo.
+- Gradle 8.9.
+- Android Gradle Plugin 8.7.3.
+- compileSdk/targetSdk 35.
+- Codemagic configurado para generar app-debug.apk.
+
+IMPORTANTE SOBRE LA API:
+La propiedad TV_DIGITAL_API_URL está configurada por defecto como:
+http://10.0.2.2:3000/
+
+Esa dirección funciona para un emulador Android cuando el backend corre en la misma PC.
+Para un celular o Android TV real debes cambiar TV_DIGITAL_API_URL en gradle.properties
+por la dirección pública o de red de tu backend antes de la compilación final.
+
+COMPILACION EN CODEMAGIC:
+El archivo codemagic.yaml descarga Gradle 8.9 y ejecuta clean assembleDebug.
+El APK queda como artefacto en app/build/outputs/apk/debug/.
