@@ -14,10 +14,36 @@ android {
         targetSdk = 35
         versionCode = 2
         versionName = "1.2.0"
-        val configuredApiUrl = providers.gradleProperty("TV_DIGITAL_API_URL").orElse("http://10.0.2.2:3000/").get()
-        val normalizedApiUrl = if (configuredApiUrl.endsWith("/")) configuredApiUrl else "$configuredApiUrl/"
-        buildConfigField("String", "API_BASE_URL", "\"$normalizedApiUrl\"")
+
+        val configuredApiUrl = providers.gradleProperty("TV_DIGITAL_API_URL")
+            .orElse("http://10.0.2.2:3000/")
+            .get()
+
+        val normalizedApiUrl =
+            if (configuredApiUrl.endsWith("/")) configuredApiUrl
+            else "$configuredApiUrl/"
+
+        buildConfigField(
+            "String",
+            "API_BASE_URL",
+            "\"$normalizedApiUrl\""
+        )
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
     buildFeatures { compose = true; buildConfig = true }
 }
 
