@@ -4,13 +4,16 @@ workflows:
     max_build_duration: 60
     environment:
       java: 17
+
     scripts:
-      - name: Descargar Gradle 8.9
+      - name: Descargar Gradle 8.13
         script: |
-          curl -L --fail --retry 3 https://services.gradle.org/distributions/gradle-8.9-bin.zip -o /tmp/gradle-8.9-bin.zip
+          curl -L --fail --retry 3 https://services.gradle.org/distributions/gradle-8.13-bin.zip -o /tmp/gradle-8.13-bin.zip
           unzip -q /tmp/gradle-8.13-bin.zip -d /tmp
+
       - name: Compilar APK
         script: |
           /tmp/gradle-8.13/bin/gradle --no-daemon clean assembleDebug
+
     artifacts:
       - app/build/outputs/apk/debug/*.apk
