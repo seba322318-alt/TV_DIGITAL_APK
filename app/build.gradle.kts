@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.tvdigital.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.tvdigital.app"
