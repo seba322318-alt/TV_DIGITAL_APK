@@ -16,7 +16,7 @@ android {
         versionName = "1.2.0"
 
         val configuredApiUrl = providers.gradleProperty("TV_DIGITAL_API_URL")
-            .orElse("http://10.0.2.2:3000/")
+            .orElse("https://tv-digital-admin.onrender.com/")
             .get()
 
         val normalizedApiUrl =
